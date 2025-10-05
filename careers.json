@@ -1,0 +1,124 @@
+[
+  {
+    "id": "ai",
+    "title": "AI Engineer",
+    "description": "Artificial Intelligence Engineers design and develop intelligent models and systems capable of learning, reasoning, and problem-solving, driving advancements in automation and data analysis.",
+    "skills": ["Python", "Machine Learning", "Data Structures", "TensorFlow", "Neural Networks", "NLP"],
+    "salary": "$120,000+",
+    "growth": "Very High"
+  },
+  {
+    "id": "energy",
+    "title": "Renewable Energy Specialist",
+    "description": "These specialists design, manage, and implement projects that generate clean energy from sources like solar, wind, and hydro, helping to combat climate change.",
+    "skills": ["Engineering", "Project Management", "Data Analysis", "Solar/Wind Tech", "Policy Knowledge"],
+    "salary": "$95,000+",
+    "growth": "High"
+  },
+  {
+    "id": "robotics",
+    "title": "Robotics Designer",
+    "description": "Robotics Designers conceptualize and build robots and automated systems for various sectors, including manufacturing, healthcare, and logistics, blending mechanical and software engineering.",
+    "skills": ["CAD Software", "C++", "Electronics", "Mechanical Design", "Prototyping", "Kinematics"],
+    "salary": "$105,000+",
+    "growth": "High"
+  },
+  {
+    "id": "space",
+    "title": "Space Tech Analyst",
+    "description": "Analysts in this field study and interpret data from satellites and spacecraft to solve problems related to climate, navigation, and telecommunications, opening up new commercial opportunities.",
+    "skills": ["Data Analysis", "Physics", "GIS Software", "Remote Sensing", "Astrodynamics"],
+    "salary": "$115,000+",
+    "growth": "Growing"
+  },
+{
+    "id": "cybersecurity",
+    "title": "Cybersecurity Analyst",
+    "description": "Protects an organization's computer systems and networks from cyber threats. They monitor for security breaches, investigate violations, and work to close off security vulnerabilities.",
+    "skills": ["Network Security", "Ethical Hacking", "Cryptography", "SIEM Tools", "Risk Analysis"],
+    "salary": "$110,000+",
+    "growth": "Very High"
+},
+{
+    "id": "datasci",
+    "title": "Data Scientist",
+    "description": "Uses analytical, statistical, and programming skills to collect, analyze, and interpret large data sets. They use this information to develop data-driven solutions to difficult business challenges.",
+    "skills": ["Python/R", "SQL", "Statistics", "Machine Learning", "Data Visualization"],
+    "salary": "$125,000+",
+    "growth": "Very High"
+},
+{
+    "id": "uxui",
+    "title": "UX/UI Designer",
+    "description": "Focuses on creating user-friendly and visually appealing digital products. UX (User Experience) deals with how the product feels, while UI (User Interface) deals with how it looks.",
+    "skills": ["Figma/Sketch", "Prototyping", "User Research", "Wireframing", "Interaction Design"],
+    "salary": "$90,000+",
+    "growth": "High"
+},
+{
+    "id": "genetic",
+    "title": "Genetic Counselor",
+    "description": "Advises individuals and families affected by or at risk of genetic disorders. They help patients understand and adapt to the medical and psychological implications of genetic diseases.",
+    "skills": ["Genetics", "Counseling", "Medical Ethics", "Empathy", "Data Interpretation"],
+    "salary": "$85,000+",
+    "growth": "High"
+},
+{
+    "id": "verticalfarm",
+    "title": "Vertical Farming Technician",
+    "description": "Manages and maintains indoor, vertically stacked farms. They monitor crop health, manage hydroponic systems, and use technology to optimize plant growth in controlled environments.",
+    "skills": ["Hydroponics", "Horticulture", "IoT Sensors", "Data Monitoring", "Automation"],
+    "salary": "$75,000+",
+    "growth": "Growing"
+},
+{
+    "id": "arvr",
+    "title": "AR/VR Developer",
+    "description": "Designs and builds immersive digital experiences for augmented and virtual reality platforms. They create everything from interactive training simulations and games to virtual showrooms for retail.",
+    "skills": ["Unity/Unreal Engine", "C++/C#", "3D Modeling", "Computer Graphics", "SDKs (Oculus, Vive)"],
+    "salary": "$115,000+",
+    "growth": "Exploding"
+},
+{
+    "id": "lawyer",
+    "title": "Corporate Lawyer",
+    "description": "Advises businesses on their legal rights, responsibilities, and obligations. They handle contracts, mergers, acquisitions, and ensure the company complies with regulations.",
+    "skills": ["Corporate Law", "Contract Negotiation", "Litigation", "Analytical Skills", "Ethics"],
+    "salary": "$130,000+",
+    "growth": "Stable"
+},
+{
+    "id": "surgeon",
+    "title": "General Surgeon",
+    "description": "A medical doctor who performs surgical operations for a wide range of common ailments. They are trained to operate on areas such as the abdomen, digestive tract, and skin.",
+    "skills": ["Medical Knowledge", "Manual Dexterity", "Problem-Solving", "Teamwork", "Patient Care"],
+    "salary": "$250,000+",
+    "growth": "Stable"
+},
+{
+    "id": "architect",
+    "title": "Architect",
+    "description": "Designs buildings and other physical structures. They are responsible for the aesthetic, functional, and safety aspects of a design, from initial concept to full construction.",
+    "skills": ["AutoCAD/Revit", "Project Management", "Building Codes", "Design Principles", "Mathematics"],
+    "salary": "$85,000+",
+    "growth": "Growing"
+},
+{
+    "id": "psychologist",
+    "title": "Clinical Psychologist",
+    "description": "Assesses, diagnoses, and treats mental, emotional, and behavioral disorders. They use the science of psychology to help people deal with problems ranging from short-term personal issues to severe, chronic conditions.",
+    "skills": ["Psychotherapy", "Diagnostic Testing", "Empathy", "Research Methods", "Communication"],
+    "salary": "$90,000+",
+    "growth": "High"
+},
+{   
+    "id": "marketing",
+    "title": "Digital Marketing Manager",
+    "description": "Develops, implements, and manages marketing campaigns that promote a company and its products. They play a major role in enhancing brand awareness within the digital space.",
+    "skills": ["SEO/SEM", "Content Creation", "Social Media", "Data Analytics", "Campaign Management"],
+    "salary": "$100,000+",
+    "growth": "Very High"
+}
+
+  
+]
