@@ -12,41 +12,70 @@
 
 <body>
     <header class="header" id="header">
-        
-        <!-- REPLACE the entire <nav> block in BOTH HTML files with this -->
-<nav class="nav container">
-    <!-- NEW: A group for the logo and menu links -->
-    <div class="nav__group">
-        <a href="index.html" class="nav__logo">NextArc Opportunity</a>
-        <div class="nav__menu" id="nav-menu">
-            <ul class="nav__list">
-                <li class="nav__item"><a href="index.html" class="nav__link"><span>Home</span></a></li>
-                <li class="nav__item"><a href="index.html#about" class="nav__link"><span>About Us</span></a></li>
-                <li class="nav__item"><a href="index.html#contact" class="nav__link"><span>Contact</span></a></li>
-            </ul>
-            <div class="nav__close" id="nav-close"><i class="ri-close-large-line"></i></div>
-        </div>
-    </div>
 
-    <!-- The container for all action buttons remains the same -->
-    <div class="nav__actions">
-        <div class="nav__social">
-            <a href="https://www.instagram.com/" target="_blank" class="nav__social-link"><i class="ri-instagram-line"></i></a>
-            <a href="https://github.com/" target="_blank" class="nav__social-link"><i class="ri-github-line"></i></a>
-            <a href="https://dribbble.com/" target="_blank" class="nav__social-link"><i class="ri-dribbble-line"></i></a>
-            <a href="https://www.linkedin.com/" target="_blank" class="nav__social-link"><i class="ri-linkedin-box-line"></i></a>
-        </div>
-        <div class="nav__login" id="nav-login">
-            <button class="google-signin-btn" id="google-signin-btn"><i class="ri-google-fill"></i><span>Sign In</span></button>
-            <div class="user-profile" id="user-profile" style="display: none;">
-                <img src="" alt="User Avatar" id="user-avatar">
-                <button id="logout-btn" aria-label="Logout"><i class="ri-logout-box-r-line"></i></button>
+        <nav class="nav container">
+            <div class="nav__group">
+                <a href="index.html" class="nav__logo">NextArc Opportunity</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html" class="nav__link"><span>Home</span></a></li>
+                        <li class="nav__item"><a href="index.html#about" class="nav__link"><span>About Us</span></a>
+                        </li>
+                        <li class="nav__item"><a href="index.html#contact" class="nav__link"><span>Contact</span></a>
+                        </li>
+                    </ul>
+
+                    <div class="nav__bottom">
+                        <div class="nav__login nav__login--mobile" id="nav-login-mobile">
+                            <button class="google-signin-btn" id="google-signin-btn-mobile"><i
+                                    class="ri-google-fill"></i><span>Sign In</span></button>
+                            <div class="user-profile" id="user-profile-mobile" style="display: none;">
+                                <img src="" alt="User Avatar" id="user-avatar-mobile">
+                                <button id="logout-btn-mobile" aria-label="Logout"><i
+                                        class="ri-logout-box-r-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="nav__social">
+                            <a href="https://www.instagram.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-instagram-line"></i></a>
+                            <a href="https://github.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-github-line"></i></a>
+                            <a href="https://dribbble.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-dribbble-line"></i></a>
+                            <a href="https://www.linkedin.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-linkedin-box-line"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="nav__close" id="nav-close"><i class="ri-close-large-line"></i></div>
+                </div>
             </div>
-        </div>
-        <div class="nav__theme-toggle" id="theme-toggle"><i class="ri-moon-line"></i></div>
-        <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
-    </div>
-</nav>
+
+            <div class="nav__actions">
+                <div class="nav__social nav__social--desktop">
+                    <a href="https://www.instagram.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-instagram-line"></i></a>
+                    <a href="https://github.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-github-line"></i></a>
+                    <a href="https://dribbble.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-dribbble-line"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-linkedin-box-line"></i></a>
+                </div>
+                <div class="nav__login nav__login--desktop" id="nav-login-desktop">
+                    <button class="google-signin-btn" id="google-signin-btn-desktop"><i
+                            class="ri-google-fill"></i><span>Sign In</span></button>
+                    <div class="user-profile" id="user-profile-desktop" style="display: none;">
+                        <img src="" alt="User Avatar" id="user-avatar-desktop">
+                        <button id="logout-btn-desktop" aria-label="Logout"><i
+                                class="ri-logout-box-r-line"></i></button>
+                    </div>
+                </div>
+                <div class="nav__theme-toggle" id="theme-toggle"><i class="ri-moon-line"></i></div>
+                <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+            </div>
+        </nav>
     </header>
 
     <main>

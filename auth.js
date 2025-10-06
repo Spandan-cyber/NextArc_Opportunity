@@ -1,72 +1,45 @@
-// This file will handle all Firebase Authentication logic
-
-// Make sure firebase-init.js is loaded before this file
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if Firebase is initialized
-    if (typeof firebase === 'undefined' || !firebase.app) {
-        console.error("Firebase is not initialized. Make sure firebase-init.js is loaded correctly.");
-        return;
-    }
+    if (typeof firebase === 'undefined') return;
     
     const auth = firebase.auth();
     const provider = new firebase.auth.GoogleAuthProvider();
 
-    // Get HTML elements
-    const signInButton = document.getElementById('google-signin-btn');
-    const userProfileDiv = document.getElementById('user-profile');
-    const userAvatar = document.getElementById('user-avatar');
-    const logoutButton = document.getElementById('logout-btn');
+    // Get ALL HTML elements (Desktop and Mobile)
+    const signInBtns = [document.getElementById('google-signin-btn-desktop'), document.getElementById('google-signin-btn-mobile')];
+    const userProfileDivs = [document.getElementById('user-profile-desktop'), document.getElementById('user-profile-mobile')];
+    const userAvatars = [document.getElementById('user-avatar-desktop'), document.getElementById('user-avatar-mobile')];
+    const logoutBtns = [document.getElementById('logout-btn-desktop'), document.getElementById('logout-btn-mobile')];
 
     // --- Sign In ---
-    if (signInButton) {
-        signInButton.addEventListener('click', () => {
-            auth.signInWithPopup(provider)
-                .then((result) => {
-                    // This gives you a Google Access Token. You can use it to access the Google API.
-                    const credential = result.credential;
-                    const token = credential.accessToken;
-                    // The signed-in user info.
-                    const user = result.user;
-                    console.log('User signed in:', user);
-                }).catch((error) => {
-                    // Handle Errors here.
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    console.error('Sign-in error:', errorMessage);
-                });
-        });
-    }
+    signInBtns.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', () => {
+                auth.signInWithPopup(provider).catch((error) => console.error('Sign-in error:', error.message));
+            });
+        }
+    });
 
     // --- Sign Out ---
-    if (logoutButton) {
-        logoutButton.addEventListener('click', () => {
-            auth.signOut().then(() => {
-                // Sign-out successful.
-                console.log('User signed out.');
-            }).catch((error) => {
-                // An error happened.
-                console.error('Sign-out error:', error);
+    logoutBtns.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', () => {
+                auth.signOut().catch((error) => console.error('Sign-out error:', error));
             });
-        });
-    }
-
+        }
+    });
 
     // --- Auth State Observer ---
-    // This function runs whenever the user's login state changes
     auth.onAuthStateChanged((user) => {
         if (user) {
-            // User is signed in
-            // Hide sign-in button, show user profile
-            signInButton.style.display = 'none';
-            userProfileDiv.style.display = 'flex';
-            userAvatar.src = user.photoURL; // Get user's Google profile picture
-            
+            // User is signed in: Update all UI elements
+            signInBtns.forEach(btn => { if(btn) btn.style.display = 'none'; });
+            userProfileDivs.forEach(div => { if(div) div.style.display = 'flex'; });
+            userAvatars.forEach(avatar => { if(avatar) avatar.src = user.photoURL; });
         } else {
-            // User is signed out
-            // Show sign-in button, hide user profile
-            signInButton.style.display = 'flex';
-            userProfileDiv.style.display = 'none';
-            userAvatar.src = '';
+            // User is signed out: Update all UI elements
+            signInBtns.forEach(btn => { if(btn) btn.style.display = 'flex'; });
+            userProfileDivs.forEach(div => { if(div) div.style.display = 'none'; });
+            userAvatars.forEach(avatar => { if(avatar) avatar.src = ''; });
         }
     });
 });
