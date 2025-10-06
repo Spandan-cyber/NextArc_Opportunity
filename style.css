@@ -145,7 +145,6 @@ a {
   color: var(--accent-color);
 }
 
-/* Navigation for mobile devices */
 @media screen and (max-width: 1150px) {
   .nav__menu {
     position: fixed;
@@ -182,7 +181,6 @@ a {
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
-    /* Pushes this section to the bottom */
   }
 
   .nav__login--mobile {
@@ -194,14 +192,12 @@ a {
     column-gap: 1rem;
   }
 
-  /* Hide desktop-only elements on mobile */
   .nav__social--desktop,
   .nav__login--desktop {
     display: none;
   }
 }
 
-/* For large devices */
 @media screen and (min-width: 1150px) {
   body {
     padding-top: calc(var(--header-height) + 2rem);
@@ -231,8 +227,22 @@ a {
   }
 
   .nav__logo {
+    position: relative;
     padding-right: 1.5rem;
-    border-right: 1px solid hsla(0, 0%, 100%, 0.2);
+  }
+
+  .nav__logo::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 60%;
+    background: linear-gradient(transparent, var(--white-color), transparent);
+    border-radius: 5px;
+    background-size: 100% 300%;
+    animation: animated-line 4s ease-in-out infinite;
   }
 
   .nav__list {
@@ -245,7 +255,6 @@ a {
     column-gap: 1rem;
   }
 
-  /* Hide mobile-only elements on desktop */
   .nav__bottom {
     display: none;
   }
@@ -299,7 +308,7 @@ a {
   color: #e84141
 }
 
-/*=============== ALL OTHER SECTIONS ===============*/
+/*=============== REUSABLE & SECTION STYLES ===============*/
 .hero {
   position: relative;
   width: 100%;
@@ -823,6 +832,37 @@ footer {
   color: inherit
 }
 
+.filter-container {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  justify-content: center
+}
+
+.filter-btn {
+  background-color: var(--card-background);
+  color: var(--card-text-color);
+  border: 2px solid transparent;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: var(--body-font);
+  transition: all .3s ease
+}
+
+.filter-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--white-color)
+}
+
+.filter-btn.active {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  border-color: var(--accent-color)
+}
+
 @media screen and (min-width:768px) {
   .about__container {
     grid-template-columns: 1fr 1fr
@@ -847,4 +887,411 @@ footer {
   100% {
     box-shadow: 0 0 5px hsla(221, 83%, 53%, .2)
   }
+}
+
+@keyframes animated-line {
+  0% {
+    background-position: 0 0
+  }
+
+  50% {
+    background-position: 0 100%
+  }
+
+  100% {
+    background-position: 0 0
+  }
+}
+
+/*=============== DASHBOARD SKILLS & PROFILE MANAGER ===============*/
+.dashboard-section {
+  padding-top: 5rem;
+  /* Adjust as needed */
+  padding-bottom: 5rem;
+}
+
+.profile-manager,
+.skills-manager {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+}
+
+.profile-manager h2,
+.skills-manager h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.profile-details {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+#profile-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-color);
+  flex-shrink: 0;
+  /* Prevent it from shrinking */
+}
+
+#profile-form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#profile-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-form label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--card-text-color);
+}
+
+#profile-form input[type="text"] {
+  background-color: var(--background-color);
+  border: 2px solid var(--card-background);
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  outline: none;
+  width: 100%;
+}
+
+#profile-form input[type="text"]:focus {
+  border-color: var(--accent-color);
+}
+
+/* Custom styling for file input */
+#profile-form input[type="file"] {
+  display: none;
+  /* Hide default file input */
+}
+
+#profile-form .custom-file-upload {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+#profile-form .custom-file-upload:hover {
+  background-color: hsl(184, 98%, 41%);
+  /* Slightly darker hover */
+}
+
+#profile-form .file-name-display {
+  margin-left: 10px;
+  color: var(--card-text-color);
+  font-size: 0.9rem;
+}
+
+#profile-form button[type="submit"] {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+/* Skills Manager */
+#add-skill-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#add-skill-form input {
+  flex-grow: 1;
+  padding: 12px 18px;
+  border: 2px solid var(--background-color);
+  border-radius: 50px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: 1rem;
+  outline: none;
+}
+
+#add-skill-form input:focus {
+  border-color: var(--accent-color);
+}
+
+#add-skill-form button {
+  font-family: var(--body-font);
+  font-weight: 600;
+  border: none;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 0 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  min-height: 40px;
+  /* Ensure space even if no skills */
+  align-items: center;
+}
+
+.skill-tag {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-tag .remove-skill {
+  background: none;
+  border: none;
+  color: var(--white-color);
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.skill-tag .remove-skill:hover {
+  opacity: 1;
+}
+
+/* Recommendations and Saved Careers */
+.recommendations-section,
+.saved-careers-section {
+  margin-top: 3rem;
+}
+
+.recommendations-section h2,
+.saved-careers-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+#saved-careers-loading {
+  color: var(--card-text-color);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .profile-details {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #profile-preview {
+    margin-bottom: 1rem;
+  }
+
+  #profile-form button[type="submit"] {
+    align-self: center;
+  }
+}
+
+/* Suggest a Career form - ensure alignment for submit button */
+#add-career-form button[type="submit"] {
+  align-self: center;
+  /* This will center the button */
+  margin-top: 1.5rem;
+  /* This adds space above the button */
+}
+
+/* All of your existing, final CSS code goes here... */
+
+/* ADD THIS BLOCK AT THE VERY END OF YOUR CSS FILE */
+/*=============== DASHBOARD STYLES ===============*/
+.profile-manager,
+.skills-manager {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+}
+
+.profile-manager h2,
+.skills-manager h2,
+.recommendations-section h2,
+.saved-careers-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.profile-details {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+#profile-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-color);
+  flex-shrink: 0;
+}
+
+#profile-form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#profile-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-form label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--card-text-color);
+}
+
+#profile-form input[type="text"] {
+  background-color: var(--background-color);
+  border: 2px solid var(--card-background);
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  outline: none;
+  width: 100%;
+}
+
+#profile-form input[type="text"]:focus {
+  border-color: var(--accent-color);
+}
+
+.custom-file-upload {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  width: fit-content;
+}
+
+.custom-file-upload:hover {
+  opacity: 0.9;
+}
+
+#file-name-display {
+  margin-top: 8px;
+  color: var(--card-text-color);
+  font-size: 0.9rem;
+}
+
+#profile-form button[type="submit"] {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+#add-skill-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#add-skill-form input {
+  flex-grow: 1;
+  padding: 12px 18px;
+  border: 2px solid var(--background-color);
+  border-radius: 50px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: 1rem;
+  outline: none;
+}
+
+#add-skill-form input:focus {
+  border-color: var(--accent-color);
+}
+
+#add-skill-form button {
+  font-family: var(--body-font);
+  font-weight: 600;
+  border: none;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 0 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  min-height: 40px;
+  align-items: center;
+}
+
+.skill-tag {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-tag .remove-skill {
+  background: none;
+  border: none;
+  color: var(--white-color);
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.skill-tag .remove-skill:hover {
+  opacity: 1;
+}
+
+.recommendations-section,
+.saved-careers-section {
+  margin-top: 3rem;
+}
+
+#loading-message {
+  color: var(--card-text-color);
+  font-style: italic;
 }

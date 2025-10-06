@@ -1,3 +1,10 @@
+/*=============== SHOW MENU ===============*/
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close');
+if(navToggle){ navToggle.addEventListener('click', () => { navMenu.classList.add('show-menu'); }); }
+if(navClose){ navClose.addEventListener('click', () => { navMenu.classList.remove('show-menu'); }); }
+
 /*=============== DARK/LIGHT THEME TOGGLE ===============*/
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
@@ -43,135 +50,144 @@ if (scrollUp) {
     });
 }
 
-
 /*=============== ALL CAREERS PAGE LOGIC ===============*/
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Get all the elements we need ---
     const careerGrid = document.getElementById('all-careers-grid');
     const requestContainer = document.getElementById('request-container');
     const careerNameInput = document.getElementById('career-name-input');
-    
-    // Get Modals and their components
+    const filterContainer = document.getElementById('filter-container');
     const viewCareerModal = document.getElementById('career-modal');
     const viewCareerCloseBtn = viewCareerModal.querySelector('.modal__close');
     const addCareerModal = document.getElementById('add-career-modal');
     const addCareerCloseBtn = addCareerModal.querySelector('.modal__close');
     const addCareerForm = document.getElementById('add-career-form');
     const successMessage = document.getElementById('submission-success');
-
-    // --- NEW: Get a reference to the Firestore database ---
     const db = firebase.firestore();
     let allCareerData = [];
 
-    // --- Main function to fetch and process data ---
     fetch('careers.json')
         .then(response => response.json())
         .then(data => {
             allCareerData = data;
+            createFilterButtons(allCareerData);
             const searchQuery = new URLSearchParams(window.location.search).get('search');
             let careersToDisplay = allCareerData;
-
             if (searchQuery) {
                 careersToDisplay = allCareerData.filter(career => 
                     career.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                     career.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    career.skills.join(' ').toLowerCase().includes(searchQuery.toLowerCase())
+                    (career.skills && career.skills.join(' ').toLowerCase().includes(searchQuery.toLowerCase()))
                 );
             }
             displayContent(careersToDisplay, searchQuery);
             setupEventListeners();
-            loadSavedCareers(); // Load user's saved careers after displaying them
+            loadSavedCareers();
         })
         .catch(error => console.error('Error fetching career data:', error));
+        
+    function createFilterButtons(careers) {
+        const allTags = new Set();
+        careers.forEach(career => {
+            if (career.tags) {
+                career.tags.forEach(tag => allTags.add(tag));
+            }
+        });
+        filterContainer.innerHTML = '';
+        const allBtn = document.createElement('button');
+        allBtn.className = 'filter-btn active';
+        allBtn.textContent = 'All';
+        allBtn.addEventListener('click', () => filterByTag('All'));
+        filterContainer.appendChild(allBtn);
+        Array.from(allTags).sort().forEach(tag => {
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn';
+            btn.textContent = tag;
+            btn.addEventListener('click', () => filterByTag(tag));
+            filterContainer.appendChild(btn);
+        });
+    }
 
-    // --- This function decides what to show on the page ---
+    function filterByTag(selectedTag) {
+        let filteredCareers;
+        if (selectedTag === 'All') {
+            filteredCareers = allCareerData;
+        } else {
+            filteredCareers = allCareerData.filter(career => career.tags && career.tags.includes(selectedTag));
+        }
+        displayContent(filteredCareers, null);
+        loadSavedCareers();
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.textContent === selectedTag);
+        });
+    }
+
     function displayContent(careers, searchQuery) {
         careerGrid.innerHTML = ''; 
-
-        if (careers.length > 0 || !searchQuery) {
+        if ((careers.length > 0) || (!searchQuery)) {
             requestContainer.style.display = 'none';
             careerGrid.style.display = 'grid';
-
             careers.forEach(career => {
                 const card = document.createElement('div');
                 card.className = 'career-card';
                 card.dataset.careerId = career.id;
-                // UPDATED: Added the save button to the card's HTML
-                card.innerHTML = `
-                    <button class="save-btn" aria-label="Save career">
-                        <i class="ri-bookmark-line"></i>
-                    </button>
-                    <h3>${career.title}</h3>
-                    <p>${career.description.substring(0, 100)}...</p>
-                `;
-                // Add listener for the VIEW modal
+                card.innerHTML = `<button class="save-btn" aria-label="Save career"><i class="ri-bookmark-line"></i></button><h3>${career.title}</h3><p>${career.description.substring(0, 100)}...</p>`;
                 card.addEventListener('click', () => openViewModal(career.id));
-                
-                // NEW: Add listener for the SAVE button
                 const saveBtn = card.querySelector('.save-btn');
                 saveBtn.addEventListener('click', (event) => {
-                    event.stopPropagation(); // Prevent the card's click event from firing
+                    event.stopPropagation();
                     toggleSaveCareer(career.id, saveBtn);
                 });
-                
                 careerGrid.appendChild(card);
             });
         } else if (searchQuery) {
             careerGrid.style.display = 'none';
             requestContainer.style.display = 'block';
-            careerNameInput.value = searchQuery;
+            if(careerNameInput) careerNameInput.value = searchQuery;
+            return; 
         }
-
         const addCard = document.createElement('div');
         addCard.className = 'add-career-card';
         addCard.innerHTML = `<i class="ri-add-line"></i><h3>Suggest a Career</h3>`;
         addCard.addEventListener('click', openAddModal);
         careerGrid.appendChild(addCard);
     }
-
-    // --- NEW: Firestore Database Logic ---
+    
     async function toggleSaveCareer(careerId, buttonElement) {
         const user = firebase.auth().currentUser;
         if (!user) {
             alert("Please sign in to save careers.");
             return;
         }
-
         const docRef = db.collection('users').doc(user.uid).collection('savedCareers').doc(careerId);
         const isSaved = buttonElement.classList.contains('saved');
-
         if (isSaved) {
-            // Unsave the career by deleting the document
             await docRef.delete();
             buttonElement.classList.remove('saved');
         } else {
-            // Save the career by creating the document
             await docRef.set({ savedAt: firebase.firestore.FieldValue.serverTimestamp() });
             buttonElement.classList.add('saved');
         }
     }
-
+    
     async function loadSavedCareers() {
         const user = firebase.auth().currentUser;
-        if (!user) return; // Only run if a user is logged in
-
+        if (!user) return;
         const querySnapshot = await db.collection('users').doc(user.uid).collection('savedCareers').get();
         const savedCareerIds = new Set();
-        querySnapshot.forEach(doc => {
-            savedCareerIds.add(doc.id);
-        });
-
-        // Loop through all the cards on the page and update their save button state
-        document.querySelectorAll('.career-card').forEach(card => {
+        querySnapshot.forEach(doc => { savedCareerIds.add(doc.id); });
+        document.querySelectorAll('.career-card[data-career-id]').forEach(card => {
             const careerId = card.dataset.careerId;
-            if (savedCareerIds.has(careerId)) {
-                card.querySelector('.save-btn').classList.add('saved');
+            const saveBtn = card.querySelector('.save-btn');
+            if(saveBtn){
+                if (savedCareerIds.has(careerId)) {
+                    saveBtn.classList.add('saved');
+                } else {
+                    saveBtn.classList.remove('saved');
+                }
             }
         });
     }
 
-
-    // --- All Modal & Form Logic (Mostly unchanged) ---
     function openViewModal(careerId) {
         const data = allCareerData.find(c => c.id === careerId);
         if (!data) return;
@@ -203,34 +219,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setupEventListeners() {
-        viewCareerCloseBtn.addEventListener('click', () => closeModal(viewCareerModal));
-        viewCareerModal.addEventListener('click', (event) => {
+        if(viewCareerCloseBtn) viewCareerCloseBtn.addEventListener('click', () => closeModal(viewCareerModal));
+        if(viewCareerModal) viewCareerModal.addEventListener('click', (event) => {
             if (event.target === viewCareerModal) closeModal(viewCareerModal);
         });
-        addCareerCloseBtn.addEventListener('click', () => closeModal(addCareerModal));
-        addCareerModal.addEventListener('click', (event) => {
+        if(addCareerCloseBtn) addCareerCloseBtn.addEventListener('click', () => closeModal(addCareerModal));
+        if(addCareerModal) addCareerModal.addEventListener('click', (event) => {
             if (event.target === addCareerModal) closeModal(addCareerModal);
         });
     }
 
-    addCareerForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const formData = new FormData(this);
-        const action = this.getAttribute('action');
-        fetch(action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        }).then(response => {
-            if (response.ok) {
-                addCareerForm.style.display = 'none';
-                successMessage.style.display = 'block';
-                addCareerForm.reset();
-            } else {
-                alert('Oops! There was a problem submitting your form.');
-            }
-        }).catch(() => {
-            alert('Oops! There was an error.');
+    if(addCareerForm){
+        addCareerForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const action = this.getAttribute('action');
+            fetch(action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    addCareerForm.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    addCareerForm.reset();
+                } else {
+                    alert('Oops! There was a problem submitting your form.');
+                }
+            }).catch(() => {
+                alert('Oops! There was an error submitting your form.');
+            });
         });
-    });
+    }
 });
