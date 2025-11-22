@@ -1,0 +1,2036 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+  --white-color: hsl(0, 0%, 100%);
+  --black-color: hsl(0, 0%, 0%);
+  --background-color: hsl(0, 0%, 100%);
+  --text-color: hsl(215, 28%, 17%);
+  --card-background: hsl(220, 13%, 95%);
+  --card-text-color: hsl(215, 15%, 45%);
+  --accent-color: hsl(221, 83%, 53%);
+  --footer-background: hsl(222, 47%, 11%);
+  --body-font: "Montserrat Alternates", sans-serif;
+  --h1-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+  --font-regular: 400;
+  --font-medium: 500;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+body.dark-mode {
+  --background-color: hsl(222, 47%, 11%);
+  --text-color: hsl(215, 15%, 85%);
+  --card-background: hsl(222, 44%, 15%);
+  --card-text-color: hsl(215, 15%, 65%);
+  --accent-color: hsl(184, 98%, 51%);
+  --footer-background: hsl(222, 44%, 12%);
+}
+
+@media screen and (min-width: 1150px) {
+  :root {
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.4s, color 0.4s;
+  padding-top: var(--header-height);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--footer-background);
+  z-index: var(--z-fixed);
+}
+
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+  flex-shrink: 0;
+}
+
+.nav__list {
+  display: flex;
+}
+
+.nav__link {
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+  transition: color .4s;
+}
+
+.nav__link:hover {
+  color: var(--accent-color);
+}
+
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: var(--white-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  column-gap: 1.2rem;
+}
+
+.nav__social-link {
+  color: var(--white-color);
+  font-size: 1.2rem;
+  transition: color .4s, transform .4s;
+}
+
+.nav__social-link:hover {
+  color: var(--accent-color);
+  transform: translateY(-.25rem);
+}
+
+.nav__theme-toggle,
+.nav__toggle {
+  color: var(--white-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.4s;
+}
+
+.nav__theme-toggle:hover,
+.nav__toggle:hover {
+  color: var(--accent-color);
+}
+
+@media screen and (max-width: 1150px) {
+  .nav__menu {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    background-color: var(--footer-background);
+    width: 100%;
+    height: 100%;
+    padding: 6rem 3.5rem 4.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: left .4s;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    row-gap: 3rem;
+  }
+
+  .nav__link {
+    font-size: var(--h1-font-size);
+  }
+
+  .show-menu {
+    left: 0;
+  }
+
+  .nav__group {
+    display: contents;
+  }
+
+  .nav__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  .nav__login--mobile {
+    order: -1;
+  }
+
+  .nav__social {
+    display: flex;
+    column-gap: 1rem;
+  }
+
+  .nav__social--desktop,
+  .nav__login--desktop {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  body {
+    padding-top: calc(var(--header-height) + 2rem);
+  }
+
+  .container {
+    margin-inline: auto;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+
+  .nav__link {
+    font-size: var(--normal-font-size);
+  }
+
+  .nav__group {
+    display: flex;
+    align-items: center;
+    column-gap: 3.5rem;
+  }
+
+  .nav__logo {
+    position: relative;
+    padding-right: 1.5rem;
+  }
+
+  .nav__logo::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 60%;
+    background: linear-gradient(transparent, var(--white-color), transparent);
+    border-radius: 5px;
+    background-size: 100% 300%;
+    animation: animated-line 4s ease-in-out infinite;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    column-gap: 3.5rem;
+  }
+
+  .nav__social--desktop {
+    display: flex;
+    column-gap: 1rem;
+  }
+
+  .nav__bottom {
+    display: none;
+  }
+}
+
+/*=============== LOGIN/USER PROFILE ===============*/
+.google-signin-btn {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--card-text-color);
+  padding: 8px 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: var(--body-font);
+  font-weight: 500;
+  transition: all .3s ease
+}
+
+.google-signin-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  border-color: transparent
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem
+}
+
+/* Find and replace this rule in your LOGIN/USER PROFILE section */
+
+.user-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* We remove the static border and replace it with an animation */
+  animation: pulse-ring 2.5s ease-in-out infinite;
+}
+
+#logout-btn {
+  background: 0 0;
+  border: none;
+  color: var(--white-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color .3s ease
+}
+
+#logout-btn:hover {
+  color: #e84141
+}
+
+/*=============== REUSABLE & SECTION STYLES ===============*/
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--white-color);
+  overflow: hidden
+}
+
+/* In style.css, find the .hero-video rule and add the fetchpriority */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  /* NEW: Optimization - ensures it's the first thing the browser downloads */
+  fetch-priority: high;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, hsla(222, 47%, 11%, .7), hsla(221, 83%, 53%, .4));
+  z-index: -1
+}
+
+/* Find and replace this rule in your style.css */
+.hero-text {
+  z-index: 1;
+  padding: 0 1rem;
+
+  /* FIX: Set a max width and use auto margins for true horizontal centering */
+  max-width: 800px;
+  /* Limits the size of the text block */
+  width: 90%;
+  /* Ensures it fills the space on smaller screens */
+  margin: 0 auto;
+  /* CRUCIAL: Centers the block itself within the Flex container */
+
+  text-align: center;
+  /* Ensures text lines are centered */
+}
+
+/* Also, ensure your .hero container is still setting the stage for centering: */
+/* .hero {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+} */
+
+.hero-text h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: 10px
+}
+
+.hero-text p {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  margin-bottom: 20px
+}
+
+.cta-btn,
+.btn-animated {
+  border: none;
+  cursor: pointer;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  color: var(--white-color);
+  background: linear-gradient(90deg, hsl(184, 98%, 51%), var(--accent-color));
+  box-shadow: 0 4px 15px hsla(221, 83%, 53%, .3);
+  transition: all .3s ease
+}
+
+.cta-btn:hover,
+.btn-animated:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px hsla(221, 83%, 53%, .4)
+}
+
+.btn-animated:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px hsla(221, 83%, 53%, .3)
+}
+
+.search-section {
+  padding: 2.5rem 1rem;
+  text-align: center
+}
+
+.search-section input {
+  width: 50%;
+  padding: 15px 20px 15px 50px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  outline: none;
+  font-size: 1rem;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  animation: pulse-glow 3s infinite ease-in-out;
+  transition: all .4s ease
+}
+
+.search-section input:focus {
+  width: 60%;
+  animation: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 20px hsla(221, 83%, 53%, .4)
+}
+
+.trending {
+  padding: 50px 20px;
+  text-align: center
+}
+
+.trending h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px
+}
+
+.career-card {
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .05);
+  transition: all .3s ease
+}
+
+.career-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px hsla(221, 83%, 53%, .2)
+}
+
+.career-card h3 {
+  color: var(--text-color);
+  padding-right: 2.5rem
+}
+
+.career-card p {
+  color: var(--card-text-color)
+}
+
+.explore-btn {
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 14px 32px;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all .3s ease
+}
+
+.explore-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  transform: translateY(-3px)
+}
+
+.section {
+  padding-block: 4rem
+}
+
+.how-it-works,
+.features {
+  padding: 50px 20px;
+  text-align: center
+}
+
+.how-it-works h2,
+.features h2 {
+  font-size: 1.8rem;
+  margin-bottom: 40px
+}
+
+.step-card,
+.feature-card {
+  background: var(--card-background);
+  padding: 30px;
+  border-radius: 15px
+}
+
+.step-card {
+  border: 2px solid transparent;
+  transition: all .3s ease
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-color)
+}
+
+.steps-grid {
+  gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+}
+
+.step-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(90deg, hsl(184, 98%, 51%), var(--accent-color));
+  color: var(--white-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 20px
+}
+
+.step-card h3,
+.feature-card h3,
+.modal__subtitle {
+  color: var(--text-color)
+}
+
+.step-card p,
+.feature-card p,
+.modal__description,
+.about__content p,
+.contact__info p {
+  color: var(--card-text-color)
+}
+
+.features {
+  background-color: var(--footer-background)
+}
+
+.features h2 {
+  color: var(--white-color)
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px
+}
+
+.feature-card i {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 15px
+}
+
+.modal__container {
+  background-color: hsla(222, 47%, 11%, .7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-fixed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease
+}
+
+.modal__content {
+  background-color: var(--background-color);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  max-width: 550px;
+  width: 100%;
+  position: relative
+}
+
+.modal-active {
+  opacity: 1;
+  visibility: visible
+}
+
+.modal__close {
+  color: var(--card-text-color);
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer
+}
+
+.modal__title {
+  color: var(--text-color)
+}
+
+.modal__skills li {
+  background-color: var(--card-background);
+  color: var(--accent-color);
+  padding: 8px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 0 8px 8px 0;
+  font-size: .9rem;
+  font-weight: 500
+}
+
+.modal__outlook {
+  background-color: var(--card-background);
+  padding: 1rem;
+  border-radius: .5rem;
+  display: flex;
+  justify-content: space-between
+}
+
+.modal__outlook h4 {
+  color: var(--card-text-color);
+  font-size: .8rem;
+  margin-bottom: .25rem
+}
+
+.modal__outlook p {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 700
+}
+
+.about__container,
+.contact__container {
+  display: grid;
+  gap: 3rem;
+  align-items: center
+}
+
+.about__image img {
+  width: 100%;
+  border-radius: 1rem
+}
+
+.about__content h2,
+.contact__info h2 {
+  color: var(--text-color)
+}
+
+.contact__container {
+  background-color: var(--card-background);
+  padding: 2.5rem;
+  border-radius: 1rem
+}
+
+.info__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: var(--normal-font-size);
+  color: var(--text-color)
+}
+
+.info__item i {
+  font-size: 1.5rem;
+  color: var(--accent-color)
+}
+
+.contact__form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem
+}
+
+.contact__form input,
+.contact__form textarea {
+  width: 100%;
+  padding: 1rem .5rem;
+  border: none;
+  border-bottom: 2px solid var(--card-text-color);
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  outline: none;
+  transition: border-color .3s
+}
+
+.contact__form input:focus,
+.contact__form textarea:focus {
+  border-bottom-color: var(--accent-color)
+}
+
+.contact__form textarea {
+  resize: vertical;
+  min-height: 100px
+}
+
+.contact__form .btn-animated {
+  align-self: flex-start
+}
+
+footer {
+  background: var(--footer-background);
+  color: var(--card-text-color);
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px
+}
+
+.scrollup {
+  position: fixed;
+  right: 1.5rem;
+  bottom: -50%;
+  background-color: var(--card-background);
+  box-shadow: 0 4px 12px hsla(222, 44%, 15%, .2);
+  display: inline-flex;
+  padding: .6rem;
+  border-radius: .5rem;
+  z-index: var(--z-tooltip);
+  transition: bottom .4s, transform .4s, background-color .4s
+}
+
+.scrollup i {
+  font-size: 1.5rem;
+  color: var(--accent-color)
+}
+
+.scrollup:hover {
+  transform: translateY(-.25rem)
+}
+
+.show-scroll {
+  bottom: 3rem
+}
+
+.body-no-scroll {
+  overflow: hidden
+}
+
+.all-careers-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  min-height: 80vh
+}
+
+.all-careers-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem
+}
+
+.all-careers-section>p {
+  font-size: 1.1rem;
+  color: var(--card-text-color);
+  margin-bottom: 3rem
+}
+
+.request-container {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center
+}
+
+.request-container h2 {
+  margin-bottom: 1rem
+}
+
+.request-container .form-group {
+  text-align: left;
+  margin-bottom: 1rem
+}
+
+.request-container label {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 500
+}
+
+.save-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: 0 0;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--card-text-color);
+  transition: color .3s ease, transform .3s ease;
+  z-index: 5
+}
+
+.save-btn:hover {
+  color: var(--accent-color);
+  transform: scale(1.1)
+}
+
+.save-btn.saved .ri-bookmark-line::before {
+  content: '\EC80';
+  font-weight: 700;
+  color: var(--accent-color)
+}
+
+.add-career-card {
+  background: 0 0;
+  border: 3px dashed var(--card-text-color);
+  color: var(--card-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-height: 200px;
+  transition: all .3s ease
+}
+
+.add-career-card:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background-color: var(--card-background)
+}
+
+.add-career-card i {
+  font-size: 3rem;
+  margin-bottom: 1rem
+}
+
+.add-career-card h3 {
+  color: inherit
+}
+
+.filter-container {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  justify-content: center
+}
+
+.filter-btn {
+  background-color: var(--card-background);
+  color: var(--card-text-color);
+  border: 2px solid transparent;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: var(--body-font);
+  transition: all .3s ease
+}
+
+.filter-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--white-color)
+}
+
+.filter-btn.active {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  border-color: var(--accent-color)
+}
+
+@media screen and (min-width:768px) {
+  .about__container {
+    grid-template-columns: 1fr 1fr
+  }
+}
+
+@media screen and (min-width:992px) {
+  .contact__container {
+    grid-template-columns: 1fr 1fr
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 5px hsla(221, 83%, 53%, .2)
+  }
+
+  50% {
+    box-shadow: 0 0 15px hsla(221, 83%, 53%, .4)
+  }
+
+  100% {
+    box-shadow: 0 0 5px hsla(221, 83%, 53%, .2)
+  }
+}
+
+@keyframes animated-line {
+  0% {
+    background-position: 0 0
+  }
+
+  50% {
+    background-position: 0 100%
+  }
+
+  100% {
+    background-position: 0 0
+  }
+}
+
+/*=============== DASHBOARD SKILLS & PROFILE MANAGER ===============*/
+.dashboard-section {
+  padding-top: 5rem;
+  /* Adjust as needed */
+  padding-bottom: 5rem;
+}
+
+.profile-manager,
+.skills-manager {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+}
+
+.profile-manager h2,
+.skills-manager h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.profile-details {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+#profile-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-color);
+  flex-shrink: 0;
+  /* Prevent it from shrinking */
+}
+
+#profile-form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#profile-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-form label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--card-text-color);
+}
+
+#profile-form input[type="text"] {
+  background-color: var(--background-color);
+  border: 2px solid var(--card-background);
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  outline: none;
+  width: 100%;
+}
+
+#profile-form input[type="text"]:focus {
+  border-color: var(--accent-color);
+}
+
+/* Custom styling for file input */
+#profile-form input[type="file"] {
+  display: none;
+  /* Hide default file input */
+}
+
+#profile-form .custom-file-upload {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+#profile-form .custom-file-upload:hover {
+  background-color: hsl(184, 98%, 41%);
+  /* Slightly darker hover */
+}
+
+#profile-form .file-name-display {
+  margin-left: 10px;
+  color: var(--card-text-color);
+  font-size: 0.9rem;
+}
+
+#profile-form button[type="submit"] {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+/* Skills Manager */
+#add-skill-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#add-skill-form input {
+  flex-grow: 1;
+  padding: 12px 18px;
+  border: 2px solid var(--background-color);
+  border-radius: 50px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: 1rem;
+  outline: none;
+}
+
+#add-skill-form input:focus {
+  border-color: var(--accent-color);
+}
+
+#add-skill-form button {
+  font-family: var(--body-font);
+  font-weight: 600;
+  border: none;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 0 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  min-height: 40px;
+  /* Ensure space even if no skills */
+  align-items: center;
+}
+
+.skill-tag {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-tag .remove-skill {
+  background: none;
+  border: none;
+  color: var(--white-color);
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.skill-tag .remove-skill:hover {
+  opacity: 1;
+}
+
+/* Recommendations and Saved Careers */
+.recommendations-section,
+.saved-careers-section {
+  margin-top: 3rem;
+}
+
+.recommendations-section h2,
+.saved-careers-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+#saved-careers-loading {
+  color: var(--card-text-color);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .profile-details {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #profile-preview {
+    margin-bottom: 1rem;
+  }
+
+  #profile-form button[type="submit"] {
+    align-self: center;
+  }
+}
+
+/* Suggest a Career form - ensure alignment for submit button */
+#add-career-form button[type="submit"] {
+  align-self: center;
+  /* This will center the button */
+  margin-top: 1.5rem;
+  /* This adds space above the button */
+}
+
+/* All of your existing, final CSS code goes here... */
+
+/* ADD THIS BLOCK AT THE VERY END OF YOUR CSS FILE */
+/*=============== DASHBOARD STYLES ===============*/
+.profile-manager,
+.skills-manager {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+}
+
+.profile-manager h2,
+.skills-manager h2,
+.recommendations-section h2,
+.saved-careers-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.profile-details {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+#profile-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-color);
+  flex-shrink: 0;
+}
+
+#profile-form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#profile-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-form label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--card-text-color);
+}
+
+#profile-form input[type="text"] {
+  background-color: var(--background-color);
+  border: 2px solid var(--card-background);
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  outline: none;
+  width: 100%;
+}
+
+#profile-form input[type="text"]:focus {
+  border-color: var(--accent-color);
+}
+
+.custom-file-upload {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  width: fit-content;
+}
+
+.custom-file-upload:hover {
+  opacity: 0.9;
+}
+
+#file-name-display {
+  margin-top: 8px;
+  color: var(--card-text-color);
+  font-size: 0.9rem;
+}
+
+#profile-form button[type="submit"] {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+#add-skill-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#add-skill-form input {
+  flex-grow: 1;
+  padding: 12px 18px;
+  border: 2px solid var(--background-color);
+  border-radius: 50px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: 1rem;
+  outline: none;
+}
+
+#add-skill-form input:focus {
+  border-color: var(--accent-color);
+}
+
+#add-skill-form button {
+  font-family: var(--body-font);
+  font-weight: 600;
+  border: none;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 0 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  min-height: 40px;
+  align-items: center;
+}
+
+.skill-tag {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-tag .remove-skill {
+  background: none;
+  border: none;
+  color: var(--white-color);
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.skill-tag .remove-skill:hover {
+  opacity: 1;
+}
+
+.recommendations-section,
+.saved-careers-section {
+  margin-top: 3rem;
+}
+
+#loading-message {
+  color: var(--card-text-color);
+  font-style: italic;
+}
+
+/* Add this to the end of style.css */
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 2px var(--accent-color);
+  }
+
+  50% {
+    box-shadow: 0 0 0 4px hsla(184, 98%, 51%, 0.5);
+    /* Transparent version of the accent color */
+  }
+
+  100% {
+    box-shadow: 0 0 0 2px var(--accent-color);
+  }
+}
+
+/*=============== CHART SECTION STYLES ===============*/
+#growth-chart-section {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+#growth-chart-section h2 {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+#growth-chart-section p {
+  color: var(--card-text-color);
+  margin-bottom: 2rem;
+  font-size: var(--small-font-size);
+}
+
+.chart-container {
+  position: relative;
+  max-width: 900px;
+  height: 400px;
+  /* Fixed height for the chart */
+  margin: 0 auto;
+  background-color: var(--card-background);
+  padding: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Add this block to the end of your Chart Section Styles in style.css */
+
+/* Mobile Responsiveness Fix for Chart */
+@media screen and (max-width: 768px) {
+  .chart-container {
+    /* Reduce the overall height on smaller screens to force better vertical scaling */
+    height: 300px;
+    /* Ensure it takes full width of the parent container */
+    width: 95%;
+    padding: 10px;
+    /* The chart library will automatically shrink the bars and labels */
+  }
+}
+
+/*=============== SORTING CONTROLS ===============*/
+.sorting-controls {
+  text-align: right;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.sorting-controls label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+#sort-select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--card-text-color);
+  background-color: var(--card-background);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  cursor: pointer;
+}
+
+/*=============== DELETE BUTTON STYLES ===============*/
+/* Find this rule in your style.css and update it */
+
+.delete-btn {
+  /* Override the standard blue gradient with a red color */
+  background: linear-gradient(90deg, #ff4141, #cc0000);
+  box-shadow: 0 4px 15px rgba(204, 0, 0, 0.4);
+  transition: all 0.3s ease;
+
+  /* FIX: Make it wide and centered for emphasis */
+  width: 100%;
+  /* Takes full width of the parent container */
+  max-width: 300px;
+  /* Limits the width on very large screens */
+  margin: 1.5rem auto 0 auto;
+  /* Centers the button and adds space above */
+  display: block;
+  /* Ensures it takes up the full width */
+}
+
+.delete-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(204, 0, 0, 0.6);
+}
+
+/*=============== PERSONAL STATS CARD ===============*/
+.personal-stats-card {
+  /* Reuses the styling of profile-manager for consistency */
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--background-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item h3 {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-top: 0.5rem;
+}
+
+.stat-item p {
+  font-size: 0.8rem;
+  color: var(--card-text-color);
+  margin-bottom: 0;
+}
+
+/*=============== LOGOUT BUTTON STYLES ===============*/
+.user-profile button[id^="logout-btn-"] {
+  /* Targets buttons with IDs starting with "logout-btn-" */
+  background: none;
+  /* No background */
+  border: none;
+  /* No border */
+  padding: 0;
+  /* No padding */
+  cursor: pointer;
+  /* Indicate it's clickable */
+  font-size: 1.5rem;
+  /* Make the icon a good size */
+  color: var(--white-color);
+  /* Set icon color */
+  display: flex;
+  /* Use flexbox to center icon if button had text */
+  align-items: center;
+  /* Center icon vertically */
+  justify-content: center;
+  /* Center icon horizontally */
+  transition: color 0.3s ease;
+  /* Smooth hover effect */
+  margin-left: 0.5rem;
+  /* Add some space from the avatar */
+}
+
+.user-profile button[id^="logout-btn-"]:hover {
+  color: var(--accent-color);
+  /* Change color on hover */
+}
+
+/* Ensure the user-profile div keeps its alignment */
+.user-profile {
+  display: flex;
+  /* Make sure it's a flex container */
+  align-items: center;
+  /* Align items vertically in the center */
+  column-gap: 0.5rem;
+  /* Space between avatar and logout button */
+}
+
+/*=============== ANIMATED SKILL MAP STYLES (NEW) ===============*/
+.skill-map-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--footer-background);
+  /* Dark background for starfield effect */
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  color: var(--white-color);
+}
+
+.skill-map-container h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+#skill-map-visualizer {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.map-node {
+  position: absolute;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: default;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  box-shadow: 0 0 10px var(--accent-color);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.map-node.core-skill {
+  background-color: #ff5722;
+  /* Different color for the 'YOU' node */
+  font-size: 1.1rem;
+  padding: 12px 20px;
+}
+
+/* Find the .danger-manager rule and REPLACE it with this: */
+.danger-manager {
+  /* Uses profile-manager styles but adds more internal spacing */
+  background-color: var(--card-background);
+  padding: 3rem 2rem;
+  /* Increased vertical padding for more space */
+  border-radius: 1rem;
+  margin-top: 3rem;
+  /* Ensure space above the section */
+  text-align: center;
+  /* Center the text and button group */
+  max-width: 900px;
+  /* Limit width on very large screens */
+  margin-left: auto;
+  /* Center the block itself */
+  margin-right: auto;
+  /* Center the block itself */
+}
+
+.danger-manager h2 {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.danger-manager p {
+  color: var(--card-text-color);
+  margin-bottom: 2rem;
+  /* Space before the button */
+  font-size: 1rem;
+}
+
+/* Ensure the delete button is a good size and centered on the page */
+#delete-account-btn {
+  /* This rule is in your JS but affects the button's final look */
+  width: 100%;
+  max-width: 300px;
+  /* Limits the width for good desktop presentation */
+  margin: 0 auto;
+  /* Centers the button horizontally */
+  display: block;
+  /* Ensures it takes up the full width for centering */
+}
+
+/*=============== ANIMATION KEYFRAMES (NEW) ===============*/
+
+@keyframes pulse-node {
+  0% {
+    transform: scale(1.0);
+    box-shadow: 0 0 0 0px rgba(255, 87, 34, 0.7);
+  }
+
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px 5px rgba(255, 87, 34, 0);
+  }
+
+  100% {
+    transform: scale(1.0);
+    box-shadow: 0 0 0 0px rgba(255, 87, 34, 0);
+  }
+}
+
+@keyframes float-drift {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+
+  50% {
+    transform: translate(-48%, -52%);
+  }
+
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/*=============== SKILL MAP STYLING (UPDATED) ===============*/
+
+/* General Node Styling */
+.map-node {
+  /* ... existing styles ... */
+  transition: all 0.5s ease-in-out;
+  /* Ensures smooth movement */
+}
+
+/* 1. Core Node Animation: Pulsing Glow */
+.map-node.core-skill {
+  /* Existing styles: background-color: #ff5722; */
+  animation: pulse-node 2s infinite ease-in-out;
+  position: absolute;
+  /* Keep absolute position */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* 2. Skill Node Animation: Gentle Floating */
+.map-node:not(.core-skill) {
+  animation: float-drift 5s infinite alternate ease-in-out;
+  /* Random initial animation delay for unsynchronized movement */
+  animation-delay: calc(var(--random-delay) * -1s);
+}
+
+/*=============== AI INTERVIEW CHAT STYLES ===============*/
+.ai-bot-manager {
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.chat-container {
+  background-color: var(--background-color);
+  border: 1px solid var(--card-background);
+  border-radius: 10px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  scroll-behavior: smooth;
+  background-color: var(--background-color);
+}
+
+.bot-message,
+.user-message {
+  max-width: 80%;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 18px;
+  line-height: 1.4;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.bot-message {
+  background-color: var(--card-background);
+  /* Light grey background for bot */
+  color: var(--text-color);
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.user-message {
+  background-color: var(--accent-color);
+  /* Blue background for user */
+  color: var(--white-color);
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.chat-input-form {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid var(--card-background);
+  background-color: var(--card-background);
+}
+
+.chat-input-form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  margin-right: 10px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  outline: none;
+  font-family: var(--body-font);
+}
+
+.chat-input-form button {
+  padding: 0 1.5rem;
+  font-size: 0.9rem;
+  border-radius: 50px;
+}
+
+/*=============== AI BOT QUICK-ACCESS BUTTON STYLES (NEW) ===============*/
+.ai-bot-access {
+  position: fixed;
+  right: 1.5rem;
+  /* Position it above the scrollup button (which is at bottom: 3rem when visible) */
+  bottom: 7rem;
+
+  /* Styling */
+  background: var(--accent-color);
+  color: var(--white-color);
+  box-shadow: 0 4px 12px hsla(221, 83%, 53%, 0.5);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  z-index: var(--z-fixed);
+
+  /* Animation and Hide/Show Logic */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, bottom 0.4s;
+}
+
+.ai-bot-access:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* Class applied by JavaScript when user is logged in */
+.show-bot-access {
+  opacity: 1;
+  visibility: visible;
+  bottom: 7rem;
+  /* Final visible position */
+}
+
+/*=============== AI BOT SPEECH BUBBLE (NEW) ===============*/
+
+/* 1. Define the Bubble Appearance */
+.ai-bot-access {
+  position: fixed;
+  /* Ensure the button is the reference point for the bubble */
+  z-index: var(--z-fixed);
+  /* Set animation properties */
+  animation: appear-pulse 5s ease-out 1;
+  /* The 1 at the end makes the animation run only once */
+}
+
+.ai-bot-access::before {
+  content: "Your AI Coach is Here!";
+  /* The text inside the bubble */
+  position: absolute;
+  right: 100%;
+  /* Position bubble to the left of the button */
+  bottom: 50%;
+  transform: translate(-10px, 50%);
+  /* Adjust position slightly */
+
+  /* Bubble Styling */
+  background: var(--white-color);
+  color: var(--text-color);
+  padding: 8px 12px;
+  border-radius: 15px;
+  white-space: nowrap;
+  /* Keep text on one line */
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  /* Hide the bubble initially */
+  opacity: 0;
+  visibility: hidden;
+
+  /* Animation for visibility */
+  animation: bubble-fade 5s ease-out 1;
+}
+
+/* 2. Define the Speech Bubble Arrow (Triangle) */
+.ai-bot-access::after {
+  content: "";
+  position: absolute;
+  right: 50px;
+  /* Position next to the bubble */
+  bottom: 45%;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid var(--white-color);
+  /* The white arrow */
+
+  /* Hide the arrow initially */
+  opacity: 0;
+  visibility: hidden;
+  animation: bubble-fade 5s ease-out 1;
+}
+
+/* 3. Define the Animation Keyframes */
+@keyframes bubble-fade {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  10% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Fade in */
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Stay visible */
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Fade out */
+}
+
+/*=============== AI CAREER INSIGHT STYLES (NEW) ===============*/
+.ai-insight-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--footer-background);
+  /* Dark background for visibility */
+  color: var(--white-color);
+}
+
+.ai-insight-box h4 {
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+#ai-insight-text {
+  font-style: italic;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+/*=============== AI SEARCH STYLES (NEW) ===============*/
+#ai-search-section {
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+/*=============== AI SEARCH STYLES (CORRECTED) ===============*/
+#ai-search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  /* Added gap for separation */
+  margin-bottom: 1.5rem;
+}
+
+#ai-search-input {
+  width: 50%;
+  padding: 15px 20px;
+  /* Reduced left padding to avoid overlapping the button */
+  border-radius: 50px;
+  border: 2px solid var(--card-background);
+  outline: none;
+  font-size: 1rem;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  transition: all 0.4s ease;
+}
+
+#ai-search-button {
+  /* Set a specific width to ensure the button doesn't shrink into the input area */
+  width: 100px;
+  flex-shrink: 0;
+  /* Prevents the button from being compressed */
+}
+
+/* On focus, the input expands */
+#ai-search-input:focus {
+  width: 60%;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px hsla(221, 83%, 53%, 0.3);
+}
+
+/* Mobile responsiveness fix to ensure button and input fit */
+@media (max-width: 600px) {
+  #ai-search-form {
+    flex-direction: column;
+    /* Stack input and button vertically */
+    gap: 0.8rem;
+  }
+
+  #ai-search-input {
+    width: 90%;
+    /* Input takes full width */
+    margin-right: 0;
+  }
+
+  #ai-search-button {
+    width: 90%;
+    /* Button takes full width */
+  }
+}
+
+#ai-search-input:focus {
+  width: 60%;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px hsla(221, 83%, 53%, 0.3);
+}
+
+.ai-answer-output {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--card-background);
+  text-align: left;
+  min-height: 40px;
+}
+
+.ai-answer-output p {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+/*=============== ENTRY PAGE ANIMATION (NEW) ===============*/
+
+@keyframes page-load-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.98); /* Start slightly smaller */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* End at normal size */
+    }
+}
+
+.animate-in {
+    animation: page-load-in 0.8s cubic-bezier(0.2, 0.5, 0.1, 1) forwards; /* 0.8s duration, forwards keeps the final state */
+    opacity: 0; /* Important: Keeps the page hidden until the animation starts */
+}
+/*=============== ENTRY PAGE ANIMATION (NEW) ===============*/
+
+@keyframes page-load-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.98); /* Start slightly smaller */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* End at normal size */
+    }
+}
+
+.animate-in {
+    animation: page-load-in 0.8s cubic-bezier(0.2, 0.5, 0.1, 1) forwards; /* 0.8s duration, forwards keeps the final state */
+    opacity: 0; /* Important: Keeps the page hidden until the animation starts */
+}
+/*=============== NEWS FEED STYLES (New) ===============*/
+#news-feed-section {
+    padding-top: 6rem; /* Ensure space below header */
+    min-height: 80vh;
+}
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.article-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+.article-card h4 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+.article-card p {
+    color: var(--card-text-color);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+.article-card a {
+    color: var(--accent-color);
+    font-weight: 500;
+}

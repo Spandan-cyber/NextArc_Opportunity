@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">Admin Panel</a>
+            <div class="nav__actions">
+                <a href="dashboard.html" class="google-signin-btn">User Dashboard</a>
+                <button id="logout-btn-admin" class="google-signin-btn">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="all-careers-section container">
+            <h1>Site Management</h1>
+            <h3 id="admin-status">Checking Permissions...</h3>
+
+            <div class="metrics-grid">
+                <div class="metric-card" id="total-users">
+                    <h2>0</h2>
+                    <p>Total Registered Users</p>
+                </div>
+                <div class="metric-card" id="total-saved">
+                    <h2>0</h2>
+                    <p>Careers Saved by Users</p>
+                </div>
+            </div>
+
+            <div class="management-tools">
+                <h2>User Submissions</h2>
+                <div id="submissions-list" class="career-grid">
+                    <p>No new submissions pending review.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="firebase-init.js"></script>
+    <script src="config.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>

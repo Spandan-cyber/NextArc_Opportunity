@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Job News Feed - NextArc</title>
+</head>
+
+<body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+
+        <nav class="nav container">
+            <div class="nav__group">
+                <a href="index.html" class="nav__logo">NextArc Opportunity</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html" class="nav__link"><span>Home</span></a></li>
+                        <li class="nav__item"><a href="index.html#about" class="nav__link"><span>About Us</span></a>
+                        </li>
+                        <li class="nav__item"><a href="index.html#contact" class="nav__link"><span>Contact</span></a>
+                        </li>
+                        <li class="nav__item"><a href="feed.html" class="nav__link"><span>Feed</span></a></li>
+                    </ul>
+
+                    <div class="nav__bottom">
+                        <div class="nav__login nav__login--mobile" id="nav-login-mobile">
+                            <button class="google-signin-btn" id="google-signin-btn-mobile"><i
+                                    class="ri-google-fill"></i><span>Sign In</span></button>
+                            <div class="user-profile" id="user-profile-mobile" style="display: none;">
+                                <a href="dashboard.html">
+                                    <img src="" alt="User Avatar" id="user-avatar-mobile">
+                                </a>
+                                <button id="logout-btn-mobile" aria-label="Logout"><i
+                                        class="ri-logout-box-fill"></i></button>
+                            </div>
+                        </div>
+                        <div class="nav__social">
+                            <a href="https://www.instagram.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-instagram-line"></i></a>
+                            <a href="https://github.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-github-line"></i></a>
+                            <a href="https://dribbble.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-dribbble-line"></i></a>
+                            <a href="https://www.linkedin.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-linkedin-box-line"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="nav__close" id="nav-close"><i class="ri-close-large-line"></i></div>
+                </div>
+            </div>
+
+            <div class="nav__actions">
+                <div class="nav__social nav__social--desktop">
+                    <a href="https://www.instagram.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-instagram-line"></i></a>
+                    <a href="https://github.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-github-line"></i></a>
+                    <a href="https://dribbble.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-dribbble-line"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-linkedin-box-line"></i></a>
+                </div>
+                <div class="nav__login nav__login--desktop" id="nav-login-desktop">
+                    <button class="google-signin-btn" id="google-signin-btn-desktop"><i
+                            class="ri-google-fill"></i><span>Sign In</span></button>
+                    <div class="user-profile" id="user-profile-desktop" style="display: none;">
+                        <a href="dashboard.html">
+                            <img src="" alt="User Avatar" id="user-avatar-desktop">
+                        </a>
+                        <button id="logout-btn-desktop" aria-label="Logout"><i class="ri-logout-box-fill"></i></button>
+                    </div>
+                </div>
+                <div class="nav__theme-toggle" id="theme-toggle"><i class="ri-moon-line"></i></div>
+                <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section container" id="news-feed-section">
+            <h1>📰 Trending Career News</h1>
+            <p>Stay up-to-date with the latest trends, reports, and breakthroughs in future job markets.</p>
+
+            <div id="articles-container" class="articles-container">
+                <h3 id="loading-message">Loading the latest job market news...</h3>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 NextArc Opportunity | Designed for Tomorrow</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+
+    <script src="firebase-init.js"></script>
+    <script src="auth.js"></script>
+    <script src="feed.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>My Dashboard - NextArc Opportunity</title>
+</head>
+
+<body class="animate-in">
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__group">
+                <a href="index.html" class="nav__logo">NextArc Opportunity</a>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html" class="nav__link"><span>Home</span></a></li>
+                        <li class="nav__item"><a href="index.html#about" class="nav__link"><span>About Us</span></a>
+                        </li>
+                        <li class="nav__item"><a href="index.html#contact" class="nav__link"><span>Contact</span></a>
+                        </li>
+                        <li class="nav__item"><a href="feed.html" class="nav__link"><span>Feed</span></a></li>
+                    </ul>
+                    <div class="nav__bottom">
+                        <div class="nav__login nav__login--mobile" id="nav-login-mobile">
+                            <button class="google-signin-btn" id="google-signin-btn-mobile"><i
+                                    class="ri-google-fill"></i><span>Sign In</span></button>
+                            <div class="user-profile" id="user-profile-mobile" style="display: none;"><a
+                                    href="dashboard.html"><img src="" alt="User Avatar"
+                                        id="user-avatar-mobile"></a><button id="logout-btn-mobile"
+                                    aria-label="Logout"><i class="ri-logout-box-fill"></i></button></div>
+                        </div>
+                        <div class="nav__social"><a href="https://www.instagram.com/" target="_blank"
+                                class="nav__social-link"><i class="ri-instagram-line"></i></a><a
+                                href="https://github.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-github-line"></i></a><a href="https://dribbble.com/" target="_blank"
+                                class="nav__social-link"><i class="ri-dribbble-line"></i></a><a
+                                href="https://www.linkedin.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-linkedin-box-line"></i></a></div>
+                    </div>
+                    <div class="nav__close" id="nav-close"><i class="ri-close-large-line"></i></div>
+                </div>
+            </div>
+            <div class="nav__actions">
+                <div class="nav__social nav__social--desktop"><a href="https://www.instagram.com/" target="_blank"
+                        class="nav__social-link"><i class="ri-instagram-line"></i></a><a href="https://github.com/"
+                        target="_blank" class="nav__social-link"><i class="ri-github-line"></i></a><a
+                        href="https://dribbble.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-dribbble-line"></i></a><a href="https://www.linkedin.com/" target="_blank"
+                        class="nav__social-link"><i class="ri-linkedin-box-line"></i></a></div>
+                <div class="nav__login nav__login--desktop" id="nav-login-desktop">
+                    <button class="google-signin-btn" id="google-signin-btn-desktop"><i
+                            class="ri-google-fill"></i><span>Sign In</span></button>
+                    <div class="user-profile" id="user-profile-desktop" style="display: none;"><a
+                            href="dashboard.html"><img src="" alt="User Avatar" id="user-avatar-desktop"></a><button
+                            id="logout-btn-desktop" aria-label="Logout"><i class="ri-logout-box-fill"></i></button>
+                    </div>
+                </div>
+                <div class="nav__theme-toggle" id="theme-toggle"><i class="ri-moon-line"></i></div>
+                <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="all-careers-section container">
+            <h1>My Dashboard</h1>
+
+            <div class="personal-stats-card profile-manager">
+                <h2>Your Activity Snapshot</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <p>Member Since</p>
+                        <h3 id="stat-member-since">N/A</h3>
+                    </div>
+                    <div class="stat-item">
+                        <p>Skills Tracking</p>
+                        <h3 id="stat-total-skills">0</h3>
+                    </div>
+                    <div class="stat-item">
+                        <p>Careers Saved</p>
+                        <h3 id="stat-careers-saved">0</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-manager">
+                <h2>Edit Profile</h2>
+                <div class="profile-details">
+                    <img id="profile-preview" src="" alt="Profile Preview">
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label for="name-input">Display Name</label>
+                            <input type="text" id="name-input" placeholder="Your display name">
+                        </div>
+                        <div class="form-group">
+                            <label for="photo-input">Upload New Profile Picture</label>
+                            <input type="file" id="photo-input" accept="image/*" style="display: none;">
+                            <label for="photo-input" class="custom-file-upload">Choose File</label>
+                            <span id="file-name-display">No file chosen</span>
+                        </div>
+                        <button type="submit" class="btn-animated">Save Profile</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="skills-manager">
+                <h2>My Skills</h2>
+                <p>Add skills to get personalized recommendations.</p>
+                <form id="add-skill-form"><input type="text" id="skill-input"
+                        placeholder="e.g., Python, Graphic Design..." autocomplete="off"><button type="submit">Add
+                        Skill</button></form>
+                <div class="skills-list" id="skills-list"></div>
+            </div>
+
+            <div class="recommendations-section">
+                <h2>Recommended For You</h2>
+
+                <div class="skill-map-container">
+                    <h3>Skill Map Visualization</h3>
+                    <div id="skill-map-visualizer">
+                        <p style="color:var(--card-text-color); margin: auto;">Add skills to see your skill map!</p>
+                    </div>
+                </div>
+
+                <div class="career-grid" id="recommendations-grid">
+                </div>
+            </div>
+
+            <div class="saved-careers-section">
+                <h2>My Saved Careers</h2>
+                <div class="career-grid" id="saved-careers-grid">
+                    <h3 id="loading-message">Loading...</h3>
+                </div>
+            </div>
+            <!-- In dashboard.html, before the Danger Zone -->
+
+            <!--==================== AI INTERVIEW BOT SECTION ====================-->
+            <div class="ai-bot-manager profile-manager" id="ai-bot-section">
+                <h2>🤖 Career Interview Coach</h2>
+                <p>Practice common interview questions tailored to your skills and career interests using Gemini AI.</p>
+
+                <div class="chat-container">
+                    <!-- Chat output window -->
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="bot-message">
+                            Hello, I'm your AI Interview Coach! Tell me, what career are you preparing for today?
+                        </div>
+                    </div>
+
+                    <!-- Input form -->
+                    <form id="chat-form" class="chat-input-form">
+                        <input type="text" id="chat-input" placeholder="Type your answer or question here...">
+                        <button type="submit" class="btn-animated">Send</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="danger-manager profile-manager">
+                <h2>Danger Zone</h2>
+                <p>Permanently delete your account and all associated data.</p>
+                <button id="delete-account-btn" class="btn-animated delete-btn">
+                    Delete My Account
+                </button>
+            </div>
+        </section>
+    </main>
+    <a href="dashboard.html#ai-bot-section" class="ai-bot-access" id="ai-bot-access">
+        <i class="ri-robot-2-line"></i>
+    </a>
+    <footer>
+        <p>© 2025 NextArc Opportunity| Designed for Tomorrow</p>
+    </footer>
+
+    <a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-storage-compat.js"></script>
+    <script src="firebase-init.js"></script>
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

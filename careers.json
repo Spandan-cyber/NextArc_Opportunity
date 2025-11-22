@@ -1,0 +1,107 @@
+[
+  {
+    "id": "ai", "title": "AI Engineer",
+    "description": "Designs and develops intelligent models and systems capable of learning, reasoning, and problem-solving.",
+    "skills": ["Python", "Machine Learning", "Data Structures", "TensorFlow", "Neural Networks"],
+    "salary": "$120,000+", "growth": "Very High",
+    "tags": ["Technology", "Science", "Data"]
+  },
+  {
+    "id": "energy", "title": "Renewable Energy Specialist",
+    "description": "Designs, manage, and implement projects that generate clean energy from sources like solar, wind, and hydro.",
+    "skills": ["Engineering", "Project Management", "Data Analysis", "Solar/Wind Tech"],
+    "salary": "$95,000+", "growth": "High",
+    "tags": ["Science", "Engineering"]
+  },
+  {
+    "id": "robotics", "title": "Robotics Designer",
+    "description": "Conceptualizes and builds robots and automated systems for various sectors, including manufacturing and healthcare.",
+    "skills": ["CAD Software", "C++", "Electronics", "Mechanical Design", "Prototyping"],
+    "salary": "$105,000+", "growth": "High",
+    "tags": ["Technology", "Engineering", "Creative"]
+  },
+  {
+    "id": "space", "title": "Space Tech Analyst",
+    "description": "Studies and interprets data from satellites and spacecraft to solve problems related to climate and navigation.",
+    "skills": ["Data Analysis", "Physics", "GIS Software", "Remote Sensing"],
+    "salary": "$115,000+", "growth": "Growing",
+    "tags": ["Technology", "Science", "Data"]
+  },
+  {
+    "id": "cybersecurity", "title": "Cybersecurity Analyst",
+    "description": "Protects an organization's computer systems and networks from cyber threats by monitoring for and investigating security breaches.",
+    "skills": ["Network Security", "Ethical Hacking", "Cryptography", "SIEM Tools", "Risk Analysis"],
+    "salary": "$110,000+", "growth": "Very High",
+    "tags": ["Technology"]
+  },
+  {
+    "id": "datasci", "title": "Data Scientist",
+    "description": "Uses analytical and programming skills to collect, analyze, and interpret large data sets to solve business challenges.",
+    "skills": ["Python/R", "SQL", "Statistics", "Machine Learning", "Data Visualization"],
+    "salary": "$125,000+", "growth": "Very High",
+    "tags": ["Technology", "Science", "Data"]
+  },
+  {
+    "id": "uxui", "title": "UX/UI Designer",
+    "description": "Focuses on creating user-friendly and visually appealing digital products, dealing with how a product looks and feels.",
+    "skills": ["Figma/Sketch", "Prototyping", "User Research", "Wireframing", "Interaction Design"],
+    "salary": "$90,000+", "growth": "High",
+    "tags": ["Technology", "Creative"]
+  },
+  {
+    "id": "lawyer", "title": "Corporate Lawyer",
+    "description": "Advises businesses on their legal rights and obligations. They handle contracts, mergers, and regulatory compliance.",
+    "skills": ["Corporate Law", "Contract Negotiation", "Litigation", "Analytical Skills"],
+    "salary": "$130,000+", "growth": "Stable",
+    "tags": ["Business", "Law"]
+  },
+  {
+    "id": "surgeon", "title": "General Surgeon",
+    "description": "A medical doctor who performs surgical operations for a wide range of common ailments on the abdomen, digestive tract, and skin.",
+    "skills": ["Medical Knowledge", "Manual Dexterity", "Problem-Solving", "Teamwork"],
+    "salary": "$250,000+", "growth": "Stable",
+    "tags": ["Healthcare", "Science"]
+  },
+  {
+    "id": "architect", "title": "Architect",
+    "description": "Designs buildings and other structures, focusing on the aesthetic, functional, and safety aspects from concept to construction.",
+    "skills": ["AutoCAD/Revit", "Project Management", "Building Codes", "Design Principles"],
+    "salary": "$85,000+", "growth": "Growing",
+    "tags": ["Engineering", "Creative"]
+  },
+  {
+    "id": "psychologist", "title": "Clinical Psychologist",
+    "description": "Assesses, diagnoses, and treats mental, emotional, and behavioral disorders to help people deal with personal issues.",
+    "skills": ["Psychotherapy", "Diagnostic Testing", "Empathy", "Research Methods"],
+    "salary": "$90,000+", "growth": "High",
+    "tags": ["Healthcare", "Science"]
+  },
+  {
+    "id": "marketing", "title": "Digital Marketing Manager",
+    "description": "Develops, implements, and manages marketing campaigns that promote a company and its products in the digital space.",
+    "skills": ["SEO/SEM", "Content Creation", "Social Media", "Data Analytics"],
+    "salary": "$100,000+", "growth": "Very High",
+    "tags": ["Business", "Creative"]
+  },
+  {
+    "id": "Singer", "title": "Singer",
+    "description": "A professional vocalist who performs songs in various genres, either solo or as part of a group, for live audiences or recordings.",
+    "skills": ["Vocal Technique", "Music Theory", "Performance Skills", "Stage Presence"],
+    "salary": "Varies Widely", "growth": "Variable",
+    "tags": ["Creative", "Entertainment"]
+  },
+  {
+    "id": "chef", "title": "Chef",
+    "description": "Prepares and cooks food in restaurants, hotels, or other dining establishments, often specializing in a particular cuisine.",
+    "skills": ["Culinary Skills", "Menu Planning", "Food Safety", "Creativity"],
+    "salary": "$50,000+", "growth": "Stable",
+    "tags": ["Creative", "Hospitality"]
+  },
+  {
+    "id": "teacher", "title": "Teacher",
+    "description": "Educates students in various subjects at different educational levels, from elementary to high school and beyond.",
+    "skills": ["Subject Knowledge", "Classroom Management", "Communication", "Patience"],
+    "salary": "$60,000+", "growth": "Growing",
+    "tags": ["Education", "Community"]
+  }
+]
