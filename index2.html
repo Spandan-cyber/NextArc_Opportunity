@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="style.css">
+
+    <title>NextArc Opportunity</title>
+</head>
+
+<body class="animate-in">
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+
+        <nav class="nav container">
+            <div class="nav__group">
+                <a href="index2.html" class="nav__logo">NextArc Opportunity</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index2.html" class="nav__link"><span>Home</span></a></li>
+                        <li class="nav__item"><a href="index2.html#about" class="nav__link"><span>About Us</span></a>
+                        </li>
+                        <li class="nav__item"><a href="index2.html#contact" class="nav__link"><span>Contact</span></a>
+                        </li>
+                        <li class="nav__item"><a href="feed.html" class="nav__link"><span>Feed</span></a></li>
+                    </ul>
+
+                    <div class="nav__bottom">
+                        <div class="nav__login nav__login--mobile" id="nav-login-mobile">
+                            <button class="google-signin-btn" id="google-signin-btn-mobile"><i
+                                    class="ri-google-fill"></i><span>Sign In</span></button>
+                            <div class="user-profile" id="user-profile-mobile" style="display: none;">
+                                <a href="dashboard.html">
+                                    <img src="" alt="User Avatar" id="user-avatar-mobile">
+                                </a>
+                                <button id="logout-btn-mobile" aria-label="Logout"><i
+                                        class="ri-logout-box-fill"></i></button>
+                            </div>
+                        </div>
+                        <div class="nav__social">
+                            <a href="https://www.instagram.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-instagram-line"></i></a>
+                            <a href="https://github.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-github-line"></i></a>
+                            <a href="https://dribbble.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-dribbble-line"></i></a>
+                            <a href="https://www.linkedin.com/" target="_blank" class="nav__social-link"><i
+                                    class="ri-linkedin-box-line"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="nav__close" id="nav-close"><i class="ri-close-large-line"></i></div>
+                </div>
+            </div>
+
+            <div class="nav__actions">
+                <div class="nav__social nav__social--desktop">
+                    <a href="https://www.instagram.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-instagram-line"></i></a>
+                    <a href="https://github.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-github-line"></i></a>
+                    <a href="https://dribbble.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-dribbble-line"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank" class="nav__social-link"><i
+                            class="ri-linkedin-box-line"></i></a>
+                </div>
+                <div class="nav__login nav__login--desktop" id="nav-login-desktop">
+                    <button class="google-signin-btn" id="google-signin-btn-desktop"><i
+                            class="ri-google-fill"></i><span>Sign In</span></button>
+                    <div class="user-profile" id="user-profile-desktop" style="display: none;">
+                        <a href="dashboard.html">
+                            <img src="" alt="User Avatar" id="user-avatar-desktop">
+                        </a>
+                        <button id="logout-btn-desktop" aria-label="Logout"><i class="ri-logout-box-fill"></i></button>
+                    </div>
+                </div>
+                <div class="nav__theme-toggle" id="theme-toggle"><i class="ri-moon-line"></i></div>
+                <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main>
+        <!-- Insert page sections -->
+        <!-- Hero Section -->
+        <!-- Hero Section with Video Background -->
+        <section class="hero">
+            <video autoplay muted loop playsinline poster="placeholder.jpg" class="hero-video">
+                <source src="background.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-text">
+                <h1>Discover the Jobs of Tomorrow, Today</h1>
+                <p>Explore careers, skills, and opportunities that will shape the future of work.</p>
+                <a href="#get-started" class="cta-btn">Get Started</a>
+            </div>
+        </section>
+
+
+        <!-- Search Bar -->
+        <section class="search-section" id="ai-search-section">
+            <form id="ai-search-form">
+                <input type="text" id="ai-search-input" placeholder="Ask Gemini about careers, salaries, or skills..."
+                    autocomplete="off">
+                <button type="submit" class="cta-btn" id="ai-search-button">Ask AI</button>
+            </form>
+
+            <div id="ai-answer-output" class="ai-answer-output">
+                <p>Type a question above to get started!</p>
+            </div>
+        </section>>
+
+        <section class="trending">
+            <h2>🌟 Trending Future Careers</h2>
+
+            <div class="career-grid">
+            </div>
+
+            <p id="no-results-message" style="display: none;">😕 No careers found matching your search.</p>
+            <a href="careers.html" class="explore-btn">Explore All Careers</a>
+        </section>
+    </main>
+    <section class="section container" id="growth-chart-section">
+        <h2>📈 Top Career Growth Opportunities</h2>
+        <p>Careers ranked by projected growth rate, based on NextArc data.</p>
+        <div class="chart-container">
+            <canvas id="growth-opportunities-chart"></canvas>
+        </div>
+    </section>
+    <section class="how-it-works">
+        <h2>🚀 How It Works in 3 Easy Steps</h2>
+        <div class="steps-grid container">
+            <div class="step-card">
+                <div class="step-icon">1</div>
+                <h3>Explore Careers</h3>
+                <p>Use our smart search to find trending jobs and industries of the future.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">2</div>
+                <h3>Discover Skills</h3>
+                <p>Learn about the key skills and qualifications needed for your chosen path.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">3</div>
+                <h3>Plan Your Future</h3>
+                <p>Get insights and resources to start building your career today.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>💡 Why Choose NextArc?</h2>
+        <div class="features-grid container">
+            <div class="feature-card">
+                <i class="ri-line-chart-line"></i>
+                <h3>Future-Proof Insights</h3>
+                <p>Data-driven analysis of jobs that will be in high demand tomorrow.</p>
+            </div>
+            <div class="feature-card">
+                <i class="ri-tools-line"></i>
+                <h3>Skill Mapping</h3>
+                <p>Connect your interests to the exact skills you need to succeed.</p>
+            </div>
+            <div class="feature-card">
+                <i class="ri-global-line"></i>
+                <h3>Global Opportunities</h3>
+                <p>Explore careers that aren't limited by geography or industry.</p>
+            </div>
+        </div>
+    </section>
+    <div class="modal__container" id="career-modal">
+        <div class="modal__content">
+            <i class="ri-close-large-line modal__close"></i>
+
+            <h2 class="modal__title"></h2>
+            <p class="modal__description"></p>
+
+            <h3 class="modal__subtitle">Key Skills</h3>
+            <ul class="modal__skills">
+            </ul>
+
+            <div class="modal__outlook">
+                <div>
+                    <h4>Avg. Salary (Projected)</h4>
+                    <p class="modal__salary"></p>
+                </div>
+                <div>
+                    <h4>Future Growth</h4>
+                    <p class="modal__growth"></p>
+                </div>
+            </div>
+        </div>
+        <div class="ai-insight-box">
+            <h4>🤖 AI Career Insight: Future Outlook</h4>
+            <p id="ai-insight-text">Loading personalized analysis...</p>
+        </div>
+    </div>
+    <section class="section container" id="about">
+        <div class="about__container">
+            <div class="about__image">
+                <img src="pic.png" alt="Team discussing future careers">
+            </div>
+
+            <div class="about__content">
+                <h2>Our Mission: Charting Your Future</h2>
+                <p>At NextArc Opportunity, we believe that everyone deserves a career they are passionate about—one that
+                    is not only fulfilling but also future-proof. Our mission is to bridge the gap between today's
+                    ambitions and tomorrow's job market reality.</p>
+                <p>We use data-driven insights to map out emerging industries and the skills you'll need to thrive in
+                    them. We're here to guide you, from exploration to preparation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section container" id="contact">
+        <div class="contact__container">
+            <div class="contact__info">
+                <h2>Get In Touch</h2>
+                <p>Have a question or want to collaborate? We’d love to hear from you. Reach out, and let's start a
+                    conversation about the future.</p>
+
+                <div class="info__item">
+                    <i class="ri-mail-send-line"></i>
+                    <span>nextarcoppurtunity@gmail.com</span>
+                </div>
+                <div class="info__item">
+                    <i class="ri-phone-line"></i>
+                    <span>+91 12345 67890</span>
+                </div>
+                <div class="info__item">
+                    <i class="ri-map-pin-line"></i>
+                    <span>Howrah, West Bengal, India</span>
+                </div>
+            </div>
+
+            <div class="contact__form">
+                <form action="https://formspree.io/f/mjkaozkw" method="POST">
+
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
+
+                    <button style="font-family: var(--body-font);" type="submit" class="btn-animated">Send
+                        Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line"></i>
+    </a>
+    <a href="dashboard.html#ai-bot-section" class="ai-bot-access" id="ai-bot-access">
+        <i class="ri-robot-2-line"></i>
+    </a>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 FutureScope Careers | Designed for Tomorrow</p>
+    </footer>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+
+    <script src="firebase-init.js"></script>
+
+    <script src="auth.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
